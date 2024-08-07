@@ -33,7 +33,7 @@ pub mod ticket {
         pub fn description(&self) -> &str {
             &self.description
         }
-        pub fn title(&self) -> &str {   
+        pub fn title(&self) -> &str {
             &self.title
         }
         pub fn status(&self) -> &str {

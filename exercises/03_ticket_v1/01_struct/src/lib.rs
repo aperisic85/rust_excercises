@@ -6,15 +6,15 @@
 // greater than 0, otherwise `false`.
 
 struct Order {
-    price:u32,
-    quantity:u32,
+    price: u32,
+    quantity: u32,
 }
 
 impl Order {
-    fn is_available(&self) -> bool{
+    fn is_available(&self) -> bool {
         self.quantity > 0
     }
-    }
+}
 
 #[cfg(test)]
 mod tests {

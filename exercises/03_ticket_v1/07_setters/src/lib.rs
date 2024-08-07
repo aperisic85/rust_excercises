@@ -11,8 +11,6 @@ pub struct Ticket {
 
 impl Ticket {
     pub fn new(title: String, description: String, status: String) -> Ticket {
-        
-        
         Ticket {
             title,
             description,
@@ -32,7 +30,7 @@ impl Ticket {
         &self.status
     }
 
-    fn check_title(&self){
+    fn check_title(&self) {
         if self.title.is_empty() {
             panic!("Title cannot be empty");
         }
@@ -40,7 +38,7 @@ impl Ticket {
             panic!("Title cannot be longer than 50 bytes");
         }
     }
-    fn check_description(&self){
+    fn check_description(&self) {
         if self.description.is_empty() {
             panic!("Description cannot be empty");
         }
@@ -48,14 +46,13 @@ impl Ticket {
             panic!("Description cannot be longer than 500 bytes");
         }
     }
-    fn check_status(&self){
-        if self.status != "To-Do" || self.status!="In-Progress" || self.status!="Done" {
+    fn check_status(&self) {
+        if self.status != "To-Do" || self.status != "In-Progress" || self.status != "Done" {
             panic!("Status must be one of To-Do, In-Progress, or Done");
         }
     }
 
-
-    pub fn set_title(&mut self,title: String) {
+    pub fn set_title(&mut self, title: String) {
         self.check_title();
         self.title = title;
     }
@@ -67,7 +64,6 @@ impl Ticket {
         self.check_status();
         self.status = status;
     }
-
 }
 
 #[cfg(test)]
