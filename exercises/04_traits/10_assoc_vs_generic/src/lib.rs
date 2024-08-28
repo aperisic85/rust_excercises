@@ -15,30 +15,28 @@
 
 use std::process::Output;
 
-
-trait Power<T>{
+trait Power<T> {
     type Output;
-    fn power(&self,t:T) -> Self::Output;
+    fn power(&self, t: T) -> Self::Output;
 }
-
 
 impl Power<u32> for u32 {
     type Output = u32;
-    fn power(&self, t:u32) -> Self::Output {
+    fn power(&self, t: u32) -> Self::Output {
         self.pow(t)
     }
 }
 
 impl Power<u16> for u32 {
     type Output = u32;
-    fn power(&self,t:u16) -> Self::Output {
+    fn power(&self, t: u16) -> Self::Output {
         self.pow(t.into())
     }
 }
 
 impl Power<&u32> for u32 {
     type Output = u32;
-    fn power(&self,t:&u32) -> Self::Output {
+    fn power(&self, t: &u32) -> Self::Output {
         self.pow(*t)
     }
 }

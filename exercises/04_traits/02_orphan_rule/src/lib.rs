@@ -3,5 +3,3 @@
 //  a foreign type (`u32`, from `std`).
 //  Look at the compiler error to get familiar with what it looks like.
 //  Then delete the code below and move on to the next exercise.
-
-

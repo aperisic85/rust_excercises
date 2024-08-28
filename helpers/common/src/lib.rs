@@ -10,7 +10,7 @@ pub fn valid_title() -> String {
     "A title".into()
 }
 
-pub fn empty_title() -> String{
+pub fn empty_title() -> String {
     "".into()
 }
 
