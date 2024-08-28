@@ -48,8 +48,6 @@ impl Ticket {
     }
 
     pub fn set_title(&mut self, title: String) {
-        
-        self.title = title;
         self.check_title();
     }
     pub fn set_description(&mut self, description: String) {
