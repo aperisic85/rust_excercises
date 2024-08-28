@@ -11,7 +11,9 @@ pub struct Ticket {
 
 impl Ticket {
     pub fn new(title: String, description: String, status: String) -> Ticket {
-        
+       // Ticket::check_title(&title);
+       // Ticket::check_description(&description);
+        //Ticket::check_status(&status);
         
         Ticket {
             title,
@@ -32,40 +34,42 @@ impl Ticket {
         &self.status
     }
 
-    fn check_title(&self){
-        if self.title.is_empty() {
-            panic!("Title cannot be empty");
-        }
-        if self.title.len() > 50 {
-            panic!("Title cannot be longer than 50 bytes");
-        }
-    }
-    fn check_description(&self){
-        if self.description.is_empty() {
-            panic!("Description cannot be empty");
-        }
-        if self.description.len() > 500 {
-            panic!("Description cannot be longer than 500 bytes");
-        }
-    }
-    fn check_status(&self){
-        if self.status != "To-Do" || self.status!="In-Progress" || self.status!="Done" {
-            panic!("Status must be one of To-Do, In-Progress, or Done");
-        }
-    }
-
-
     pub fn set_title(&mut self,title: String) {
-        self.check_title();
+        Ticket::check_title(&title);
         self.title = title;
     }
     pub fn set_description(&mut self, description: String) {
-        self.check_description();
+        Ticket::check_description(&description);
         self.description = description;
     }
     pub fn set_status(&mut self, status: String) {
-        self.check_status();
+        
+        Ticket::check_status(status.clone());
         self.status = status;
+    }
+
+    fn check_title(title: &String){
+        println!("{}", title.len());
+        if title.is_empty() {
+            panic!("Title cannot be empty");
+        }
+        if title.len() > 50 {
+            panic!("Title cannot be longer than 50 bytes");
+        }
+    }
+    fn check_description(desc: &String){
+        if desc.is_empty() {
+            panic!("Description cannot be empty");
+        }
+        if desc.len() > 500 {
+            panic!("Description cannot be longer than 500 bytes");
+        }
+    }
+    fn check_status(status: String){
+        println!("------------------------------------Status is: {}", status);
+        if (status != "To-Do") || (status != "In-Progress") || (status != "Done") {
+            panic!("Only `To-Do`, `In Progress`, and `Done` statuses are allowed");
+        }
     }
 
 }
