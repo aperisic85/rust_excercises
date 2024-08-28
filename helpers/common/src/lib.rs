@@ -10,6 +10,13 @@ pub fn valid_title() -> String {
     "A title".into()
 }
 
+pub fn empty_title() -> String{
+    "".into()
+}
+
 pub fn valid_description() -> String {
     "A description".into()
+}
+pub fn empty_description() -> String {
+    "".into()
 }
