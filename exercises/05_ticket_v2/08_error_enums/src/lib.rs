@@ -26,7 +26,7 @@ fn easy_ticket(title: String, description: String, status: Status) -> Ticket {
                 TicketNewError::DescriptionEmpty => {Ticket::new(title, "Description not provided".to_string(), status).unwrap()},
                 TicketNewError::DescriptionLong => {Ticket::new(title, "Description not provided".to_string(), status).unwrap()},
                 TicketNewError::TitleLong => panic!("Title cannot be longer than 50 bytes"),
-                TicketNewError::TitleEmpty => panic!("Title cannot be longer than 50 bytes"),
+                TicketNewError::TitleEmpty => panic!("Title cannot be empty"),
     
             }
         }
