@@ -10,7 +10,7 @@ struct Ticket {
     status: Status,
 }
 
-#[derive(Debug, PartialEq, Clone,Copy)]
+#[derive(Debug, PartialEq, Clone, Copy)]
 enum Status {
     ToDo,
     InProgress,
@@ -31,7 +31,7 @@ impl Ticket {
         if description.len() > 500 {
             panic!("Description cannot be longer than 500 bytes");
         }
-        if status != Status::Done && status != Status::InProgress && status != Status::ToDo{
+        if status != Status::Done && status != Status::InProgress && status != Status::ToDo {
             panic!("Only `To-Do`, `In Progress`, and `Done` statuses are allowed");
         }
 
