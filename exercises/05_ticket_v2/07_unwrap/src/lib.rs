@@ -9,8 +9,7 @@ fn easy_ticket(title: String, description: String, status: Status) -> Ticket {
         Err(e) => {
             if e.contains("Description") {
                 Ticket::new(title, "Description not provided".to_string(), status).unwrap()
-            }
-            else {
+            } else {
                 panic!("{e}");
             }
         }

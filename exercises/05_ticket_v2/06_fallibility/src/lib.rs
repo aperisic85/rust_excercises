@@ -1,10 +1,7 @@
 // TODO: Convert the `Ticket::new` method to return a `Result` instead of panicking.
 //   Use `String` as the error type.
 
-use std::{
-    fmt::{Debug},
-    io::Error,
-};
+use std::{fmt::Debug, io::Error};
 
 #[derive(Debug, PartialEq)]
 struct Ticket {
