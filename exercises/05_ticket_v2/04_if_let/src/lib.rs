@@ -10,8 +10,7 @@ impl Shape {
     pub fn radius(&self) -> f64 {
         if let Shape::Circle { radius } = &self {
             *radius
-        }
-        else {
+        } else {
             panic!("I dont have radius");
         }
     }
