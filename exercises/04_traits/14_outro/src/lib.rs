@@ -13,43 +13,41 @@ use std::ops::Add;
 
 #[derive(Debug, PartialEq, PartialOrd, Copy, Clone)]
 pub struct SaturatingU16 {
-    value : u16,
+    value: u16,
 }
 
-impl SaturatingU16{
-    fn new(value: u16) -> Self{
-        SaturatingU16{value}
+impl SaturatingU16 {
+    fn new(value: u16) -> Self {
+        SaturatingU16 { value }
     }
 }
 
 impl From<&u8> for SaturatingU16 {
     fn from(v: &u8) -> Self {
-        SaturatingU16{value : (*v).into()}
+        SaturatingU16 { value: (*v).into() }
     }
 }
 impl From<u8> for SaturatingU16 {
     fn from(v: u8) -> Self {
-        SaturatingU16{value : v.into()}
+        SaturatingU16 { value: v.into() }
     }
 }
 impl From<&u16> for SaturatingU16 {
     fn from(v: &u16) -> Self {
-        SaturatingU16{value : (*v).into()}
+        SaturatingU16 { value: (*v).into() }
     }
 }
 impl From<u16> for SaturatingU16 {
     fn from(v: u16) -> Self {
-        SaturatingU16{value : v.into()}
+        SaturatingU16 { value: v.into() }
     }
 }
-
 
 impl PartialEq<u16> for SaturatingU16 {
     fn eq(&self, other: &u16) -> bool {
         self.value == *other
     }
 }
-
 
 impl Add for SaturatingU16 {
     type Output = SaturatingU16;
@@ -61,7 +59,9 @@ impl Add for SaturatingU16 {
 impl Add<u16> for SaturatingU16 {
     type Output = Self;
     fn add(self, rhs: u16) -> Self::Output {
-        Self {value :  self.value.saturating_add(rhs)}
+        Self {
+            value: self.value.saturating_add(rhs),
+        }
     }
 }
 
@@ -79,5 +79,3 @@ impl Add<&u16> for SaturatingU16 {
         SaturatingU16::from(self.value.saturating_add(*rhs))
     }
 }
-
-

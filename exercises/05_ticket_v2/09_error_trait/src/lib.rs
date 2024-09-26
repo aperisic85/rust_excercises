@@ -14,27 +14,28 @@ enum TicketNewError {
 
 impl Display for TicketNewError {
     fn fmt(&self, f: &mut Formatter<'_>) -> std::fmt::Result {
-      match self {
-          TicketNewError::DescriptionError(text) => write!(f, "{}", text),
-          TicketNewError::TitleError(text) => write!(f, "{}", text),
-      }
+        match self {
+            TicketNewError::DescriptionError(text) => write!(f, "{}", text),
+            TicketNewError::TitleError(text) => write!(f, "{}", text),
+        }
     }
 }
 
-impl Error for TicketNewError{}
+impl Error for TicketNewError {}
 
 // TODO: `easy_ticket` should panic when the title is invalid, using the error message
 //   stored inside the relevant variant of the `TicketNewError` enum.
 //   When the description is invalid, instead, it should use a default description:
 //   "Description not provided".
 fn easy_ticket(title: String, description: String, status: Status) -> Ticket {
-
     match Ticket::new(title.clone(), description.clone(), status.clone()) {
         Ok(t) => t,
         Err(e) => match e {
-            TicketNewError::DescriptionError(_) => Ticket::new(title,"Description not provided".to_string(),status).unwrap(),
-            TicketNewError::TitleError(e) => panic!("{}",e),
-        }
+            TicketNewError::DescriptionError(_) => {
+                Ticket::new(title, "Description not provided".to_string(), status).unwrap()
+            }
+            TicketNewError::TitleError(e) => panic!("{}", e),
+        },
     }
 }
 

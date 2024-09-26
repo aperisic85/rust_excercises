@@ -779,6 +779,9 @@ version = "0.1.0"
 [[package]]
 name = "tryfrom"
 version = "0.1.0"
+dependencies = [
+ "thiserror",
+]
 
 [[package]]
 name = "two_states"
