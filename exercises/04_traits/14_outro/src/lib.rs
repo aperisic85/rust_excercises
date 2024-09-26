@@ -72,4 +72,12 @@ impl Add<&SaturatingU16> for SaturatingU16 {
     }
 }
 
+impl Add<&u16> for SaturatingU16 {
+    type Output = SaturatingU16;
+
+    fn add(self, rhs: &u16) -> Self::Output {
+        SaturatingU16::from(self.value.saturating_add(*rhs))
+    }
+}
+
 
