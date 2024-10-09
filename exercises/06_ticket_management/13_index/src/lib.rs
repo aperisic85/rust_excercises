@@ -1,5 +1,7 @@
 // TODO: Implement `Index<&TicketId>` and `Index<TicketId>` for `TicketStore`.
 
+use std::ops::Index;
+
 use ticket_fields::{TicketDescription, TicketTitle};
 
 #[derive(Clone)]
@@ -7,6 +9,7 @@ pub struct TicketStore {
     tickets: Vec<Ticket>,
     counter: u64,
 }
+
 
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct TicketId(u64);
@@ -55,6 +58,23 @@ impl TicketStore {
 
     pub fn get(&self, id: TicketId) -> Option<&Ticket> {
         self.tickets.iter().find(|&t| t.id == id)
+    }
+
+}
+
+
+impl Index<TicketId> for TicketStore {
+    type Output = Ticket;
+    fn index(&self, id: TicketId) -> &Self::Output {
+        self.tickets.iter().find(|&t| t.id == id).unwrap()
+    }
+} 
+
+impl Index<&TicketId> for TicketStore {
+    type Output = Ticket;
+    fn index(&self, id: &TicketId) -> &Self::Output {
+        &self[*id] //can be like this because we have already implemented Index<TicketID> if not need to use this bellow
+        //self.tickets.iter().find(|&t| t.id == *id).unwrap()
     }
 }
 
