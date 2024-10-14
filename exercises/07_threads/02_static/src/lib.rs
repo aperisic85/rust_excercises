@@ -10,7 +10,7 @@ pub fn sum(slice: &'static [i32]) -> i32 {
     let h1 = thread::spawn(|| l.iter().sum::<i32>());
     let h2 = thread::spawn(|| r.iter().sum::<i32>());
 
-    h1.join().unwrap()  + h2.join().unwrap()
+    h1.join().unwrap() + h2.join().unwrap()
 }
 
 #[cfg(test)]
