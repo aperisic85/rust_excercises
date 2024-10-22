@@ -71,3 +71,10 @@ impl Add<&SaturatingU16> for SaturatingU16 {
         self + *rhs
     }
 }
+
+impl Add<&u16> for SaturatingU16 {
+    type Output = Self;
+    fn add(self, rhs: &u16) -> Self::Output {
+        self + *rhs
+    }
+}
